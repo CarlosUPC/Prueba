@@ -3,4 +3,4 @@ MyAwesomeGame
 
 Testing window initialization and movement.
 
-Gerard Marcos Freixas.
+Carlos Peña Hernando
