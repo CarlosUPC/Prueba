@@ -72,7 +72,7 @@ int main(int argc, char* argv[]) {
 				case SDLK_w: 
 					shot.x = rectangle.x + 260;
 					shot.y = rectangle.y + 75;
-					movShot = true;
+ 					movShot = true;
 				default:
 					break;
 				}
@@ -94,24 +94,26 @@ int main(int argc, char* argv[]) {
 				}
 			}
 		}
+		
+                SDL_SetRenderDrawColor(renderer, 34, 150, 255, 255);
+		SDL_RenderClear(renderer); // All the screen (background) will be blue
 
+		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+		SDL_RenderFillRect(renderer, &rectangle);
+		
 		// Move ship
 		if (movRight) rectangle.x += rectSpeed;
 		if (movLeft) rectangle.x -= rectSpeed;
 		if (movUp) rectangle.y -= rectSpeed;
 		if (movDown) rectangle.y += rectSpeed;
+		
 		if (movShot) {
 
 			SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 			SDL_RenderFillRect(renderer, &shot);
 			shot.x += shotSpeed;
-			SDL_RenderPresent(renderer); // DON'T FORGET THIS!!! I need to update the screen in order to see the actions!!!
+			
 		}
-		SDL_SetRenderDrawColor(renderer, 34, 150, 255, 255);
-		SDL_RenderClear(renderer); // All the screen (background) will be blue
-
-		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-		SDL_RenderFillRect(renderer, &rectangle);
 		
 		SDL_RenderPresent(renderer);
 	}
